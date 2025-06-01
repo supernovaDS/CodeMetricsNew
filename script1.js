@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const url2 = `https://alfa-leetcode-api.onrender.com/${username}/contest`;
         if (validateUsername(username)) {
             fetchUserDetails(username, url, LeetcodeSearchButton, "leetcode");
-            fetchUserDetails(username, url2, LeetcodeSearchButton, "leetcode");
+            // fetchUserDetails(username, url2, LeetcodeSearchButton, "leetcode");
         }
     });
 
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     CodechefSearchButton.addEventListener('click', function () {
-        const handle = CodechefUsernameInput.value;
+        const handle = "";
         const url = `http://localhost:3000/codechef/${handle}`;
         if (validateUsername(handle)) {
             fetchUserDetails(handle, url, CodechefSearchButton, "codechef");
@@ -264,31 +264,31 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-    function displayCodechefData(data) {
-        try {
-            const totalSolved = data.total_problems_solved || 0;
-            const easy = data.problems?.easy?.count || 0;
-            const medium = data.problems?.medium?.count || 0;
-            const hard = data.problems?.hard?.count || 0;
-            const totalSubmissions = data.total_submissions || 0;
+    // function displayCodechefData(data) {
+    //     try {
+    //         const totalSolved = data.total_problems_solved || 0;
+    //         const easy = data.problems?.easy?.count || 0;
+    //         const medium = data.problems?.medium?.count || 0;
+    //         const hard = data.problems?.hard?.count || 0;
+    //         const totalSubmissions = data.total_submissions || 0;
 
-            const acceptanceRate = totalSubmissions === 0 ? "0.00" : ((totalSolved / totalSubmissions) * 100).toFixed(2);
-            const stars = data.rating?.stars || "-";
-            const contestRating = data.rating?.rating || "Unrated";
+    //         const acceptanceRate = totalSubmissions === 0 ? "0.00" : ((totalSolved / totalSubmissions) * 100).toFixed(2);
+    //         const stars = data.rating?.stars || "-";
+    //         const contestRating = data.rating?.rating || "Unrated";
 
-            updateProgress(totalSolved, CodechefTotalSolvedLabel);
-            updateProgress(easy, CodechefEasySolvedLabel);
-            updateProgress(medium, CodechefMediumSolvedLabel);
-            updateProgress(hard, CodechefHardSolvedLabel);
-            updateProgress(totalSubmissions, CodechefTotalSubmissionLabel);
-            updateProgress(acceptanceRate, CodechefAceeptanceRateLabel);
-            updateProgress(stars, CodechefStarsValueLabel);
-            updateProgress(contestRating, CodechefContestRatingLabel);
-        } catch (err) {
-            console.error("Error parsing new CodeChef data:", err);
-            alert("CodeChef data format error.");
-        }
-    }
+    //         updateProgress(totalSolved, CodechefTotalSolvedLabel);
+    //         updateProgress(easy, CodechefEasySolvedLabel);
+    //         updateProgress(medium, CodechefMediumSolvedLabel);
+    //         updateProgress(hard, CodechefHardSolvedLabel);
+    //         updateProgress(totalSubmissions, CodechefTotalSubmissionLabel);
+    //         updateProgress(acceptanceRate, CodechefAceeptanceRateLabel);
+    //         updateProgress(stars, CodechefStarsValueLabel);
+    //         updateProgress(contestRating, CodechefContestRatingLabel);
+    //     } catch (err) {
+    //         console.error("Error parsing new CodeChef data:", err);
+    //         alert("CodeChef data format error.");
+    //     }
+    // }
     
     window.addEventListener('load', () => {
     const modal = document.getElementById('popup-modal');
