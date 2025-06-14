@@ -37,6 +37,14 @@ class Navigation {
     navigateTo(page, pushState = true) {
         if (this.currentPage === page) return;
 
+        // Store the old page before updating
+        const oldPage = this.currentPage;
+
+        // Destroy chart for the old page if it's a platform-specific page
+        if (window.chartManager && ['leetcode', 'codeforces', 'codechef'].includes(oldPage)) {
+            window.chartManager.destroyChart(oldPage);
+        }
+
         // Hide current page
         const currentPageElement = document.getElementById(`${this.currentPage}-page`);
         if (currentPageElement) {

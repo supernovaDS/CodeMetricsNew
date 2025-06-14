@@ -36,13 +36,10 @@ class ChartManager {
         };
     }
 
-    // Initialize all charts
+    // Initialize only the main charts (not platform-specific ones)
     initializeCharts() {
         this.initializePlatformChart();
         this.initializeDifficultyChart();
-        this.initializeLeetCodeChart();
-        this.initializeCodeforcesChart();
-        this.initializeCodeChefChart();
     }
 
     // Platform comparison chart
