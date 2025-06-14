@@ -3,126 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles1.css">
-    <title>Document</title>
+    <title>CodeMetrics - Competitive Programming Analytics</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="heading">
-        <h1>
-            CodeMetrics
-        </h1>
-    </div>
-    <div class="user-input">
-        <div class="leetcode-input common-input">
-            <h3>Enter Your Leetcode Username :</h3>
-            <div class="leetcode-input">
-                <input type="text" placeholder="Leetcode username here..." id="leetcode-search">
-                <button id="leetcode-submit">Submit</button>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>CodeMetrics</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" data-page="home">Home</a>
+                <a href="#leetcode" class="nav-link" data-page="leetcode">LeetCode</a>
+                <a href="#codeforces" class="nav-link" data-page="codeforces">Codeforces</a>
+                <a href="#codechef" class="nav-link" data-page="codechef">CodeChef</a>
             </div>
         </div>
-        <div class="codeforces-input common-input">
-            <h3>Enter Your Codeforces Username :</h3>
-            <div class="codeforces-input">
-                <input type="text" placeholder="Codeforces username here..." id="codeforces-search">
-                <button id="codeforces-submit">Submit</button>
-            </div>
-        </div>
-        <div class="codechef-input common-input">
-            <h3>Enter Your Codechef Username :</h3>
-            <div class="codechef-input">
-                <input type="text" placeholder="Codechef username here..." id="codechef-search">
-                <button id="codechef-submit">Submit</button>
-            </div>
-        </div>
-    </div>
-    <div class="dashboard">
-        <h2 id="dashboard-heading">DASHBOARD</h2>
-        <div class="stats-container-dashboard">
-            <div class="overall-dashboard">
-                <h2>Overall</h2>
-                <div class="stats-grid">
-                    <div class="stat-item"><span class="label">Total Solved</span><span class="value total-solved">_</span></div>
-                    <div class="stat-item"><span class="label">Easy Solved</span><span class="value easy-solved">_</span></div>
-                    <div class="stat-item"><span class="label">Medium Solved</span><span class="value medium-solved">_</span></div>
-                    <div class="stat-item"><span class="label">Hard Solved</span><span class="value hard-solved">_</span></div>
-                    <div class="stat-item"><span class="label">Submissions</span><span class="value">_</span></div>
-                    <div class="stat-item"><span class="label">Acceptance Rate</span><span class="value">_</span></div>
-                    <div class="stat-item"><span class="label">Total Active Days</span><span class="value">_</span></div>
-                    <div class="stat-item"><span class="label">Contest Rating</span><span class="value">_</span></div>
-                </div>
-            </div>
+    </nav>
 
-            <div class="individual-dashboard">
-                <div class="leetcode-dashboard">
-                    <h2>Leetcode</h2>
-                     <div class="stats-grid">
-                    <div class="stat-item"><span class="label">Total Solved</span><span class="leetcode-total-value value">_</span></div>
-                    <div class="stat-item"><span class="label">Easy Solved</span><span class="leetcode-easy-value value">_</span></div>
-                    <div class="stat-item"><span class="label">Medium Solved</span><span class="leetcode-medium-value value">_</span></div>
-                    <div class="stat-item"><span class="label">Hard Solved</span><span class="leetcode-hard-value value">_</span></div>
-                    <div class="stat-item"><span class="label">Acceptance Rate</span><span class="leetcode-acceptance-rate value">_</span></div>
-                    <div class="stat-item"><span class="label">Contest Rating</span><span class="leetcode-contest-rating value">_</span></div>
-                    <div class="stat-item"><span class="label">Contest Ranking</span><span class="leetcode-contest-ranking value">_</span></div>
-                    <div class="stat-item"><span class="label">Contest Top Percentage</span><span class="leetcode-top-percentage value">_</span></div>
-                </div>
-                </div>
-                <div class="codeforces-dashboard">
-                    <h2>Codeforces</h2>
-                     <div class="stats-grid">
-                    <div class="stat-item"><span class="label">Total Solved</span><span class="cf-total-value value">_</span></div>
-                    <div class="stat-item"><span class="label">Easy Solved</span><span class="cf-easy-value value">_</span></div>
-                    <div class="stat-item"><span class="label">Medium Solved</span><span class="value cf-medium-value">_</span></div>
-                    <div class="stat-item"><span class="label">Hard Solved</span><span class="value cf-hard-value">_</span></div>
-                    <div class="stat-item"><span class="label">Submissions</span><span class="value cf-total-submissions">_</span></div>
-                    <div class="stat-item"><span class="label">Acceptance Rate</span><span class="value cf-acceptance-rate">_</span></div>
-                    <div class="stat-item"><span class="label">Total Active Days</span><span class="value">_</span></div>
-                    <div class="stat-item"><span class="label">Contest Rating</span><span class="value cf-contest-rating">_</span></div>
-                </div>
-                </div>
-                <div class="codechef-dashboard">
-                    <h2>Codechef</h2>
-                     <div class="stats-grid">
-                    <div class="stat-item"><span class="label">Total Solved</span><span class="value codechef-total-value">_</span></div>
-                    <div class="stat-item"><span class="label">Easy Solved</span><span class="value codechef-easy-value">_</span></div>
-                    <div class="stat-item"><span class="label">Medium Solved</span><span class="value codechef-medium-value">_</span></div>
-                    <div class="stat-item"><span class="label">Hard Solved</span><span class="value codechef-hard-value">_</span></div>
-                    <div class="stat-item"><span class="label">Submissions</span><span class="value codechef-total-submission">_</span></div>
-                    <div class="stat-item"><span class="label">Acceptance Rate</span><span class="value codechef-acceptance-rate">_</span></div>
-                    <div class="stat-item"><span class="label">Stars</span><span class="value codechef-stars-value">_</span></div>
-                    <div class="stat-item"><span class="label">Contest Rating</span><span class="value codechef-contest-rating">_</span></div>
-                </div>
+    <!-- Home Page -->
+    <div id="home-page" class="page active">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Track Your Competitive Programming Journey</h1>
+                <p class="hero-subtitle">Comprehensive analytics for LeetCode, Codeforces, and CodeChef</p>
+            </div>
+        </div>
+
+        <!-- User Input Section -->
+        <div class="input-section">
+            <div class="container">
+                <h2 class="section-title">Enter Your Usernames</h2>
+                <div class="input-grid">
+                    <div class="input-card">
+                        <div class="platform-icon leetcode-icon">LC</div>
+                        <h3>LeetCode</h3>
+                        <div class="input-group">
+                            <input type="text" placeholder="Enter username..." id="leetcode-search" class="platform-input">
+                            <button id="leetcode-submit" class="submit-btn leetcode-btn">
+                                <span class="btn-text">Submit</span>
+                                <div class="loading-spinner"></div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="input-card">
+                        <div class="platform-icon codeforces-icon">CF</div>
+                        <h3>Codeforces</h3>
+                        <div class="input-group">
+                            <input type="text" placeholder="Enter handle..." id="codeforces-search" class="platform-input">
+                            <button id="codeforces-submit" class="submit-btn codeforces-btn">
+                                <span class="btn-text">Submit</span>
+                                <div class="loading-spinner"></div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="input-card">
+                        <div class="platform-icon codechef-icon">CC</div>
+                        <h3>CodeChef</h3>
+                        <div class="input-group">
+                            <input type="text" placeholder="Enter username..." id="codechef-search" class="platform-input">
+                            <button id="codechef-submit" class="submit-btn codechef-btn">
+                                <span class="btn-text">Submit</span>
+                                <div class="loading-spinner"></div>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- Overall Dashboard -->
+        <div class="dashboard-section">
+            <div class="container">
+                <h2 class="section-title">Overall Statistics</h2>
+                <div class="stats-overview">
+                    <div class="stat-card primary">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="total-solved">0</h3>
+                            <p class="stat-label">Total Problems Solved</p>
+                        </div>
+                    </div>
+                    <div class="stat-card success">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="easy-solved">0</h3>
+                            <p class="stat-label">Easy Problems</p>
+                        </div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="medium-solved">0</h3>
+                            <p class="stat-label">Medium Problems</p>
+                        </div>
+                    </div>
+                    <div class="stat-card danger">
+                        <div class="stat-icon">🔥</div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="hard-solved">0</h3>
+                            <p class="stat-label">Hard Problems</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Platform Comparison Chart -->
+                <div class="chart-container">
+                    <h3>Platform Comparison</h3>
+                    <canvas id="platformChart"></canvas>
+                </div>
+
+                <!-- Difficulty Distribution -->
+                <div class="chart-container">
+                    <h3>Difficulty Distribution</h3>
+                    <canvas id="difficultyChart"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- LeetCode Page -->
+    <div id="leetcode-page" class="page">
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title">LeetCode Analytics</h1>
+                <p class="page-subtitle">Detailed analysis of your LeetCode performance</p>
+            </div>
+        </div>
+        <div class="analytics-content">
+            <div class="container">
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Problem Statistics</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="label">Total Solved</span>
+                                <span class="value" id="lc-total">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Easy</span>
+                                <span class="value" id="lc-easy">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Medium</span>
+                                <span class="value" id="lc-medium">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Hard</span>
+                                <span class="value" id="lc-hard">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Contest Performance</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="label">Rating</span>
+                                <span class="value" id="lc-rating">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Ranking</span>
+                                <span class="value" id="lc-ranking">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Top %</span>
+                                <span class="value" id="lc-percentage">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Acceptance Rate</span>
+                                <span class="value" id="lc-acceptance">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-row">
+                    <div class="chart-container">
+                        <h3>Problem Difficulty Distribution</h3>
+                        <canvas id="leetcodeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Codeforces Page -->
+    <div id="codeforces-page" class="page">
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title">Codeforces Analytics</h1>
+                <p class="page-subtitle">Comprehensive analysis of your Codeforces journey</p>
+            </div>
+        </div>
+        <div class="analytics-content">
+            <div class="container">
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Problem Statistics</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="label">Total Solved</span>
+                                <span class="value" id="cf-total">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Easy (≤900)</span>
+                                <span class="value" id="cf-easy">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Medium (901-1200)</span>
+                                <span class="value" id="cf-medium">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Hard (>1200)</span>
+                                <span class="value" id="cf-hard">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Contest Performance</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="label">Rating</span>
+                                <span class="value" id="cf-rating">Unrated</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Max Rating</span>
+                                <span class="value" id="cf-max-rating">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Submissions</span>
+                                <span class="value" id="cf-submissions">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Acceptance Rate</span>
+                                <span class="value" id="cf-acceptance">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-row">
+                    <div class="chart-container">
+                        <h3>Rating Distribution</h3>
+                        <canvas id="codeforcesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CodeChef Page -->
+    <div id="codechef-page" class="page">
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title">CodeChef Analytics</h1>
+                <p class="page-subtitle">Detailed insights into your CodeChef performance</p>
+            </div>
+        </div>
+        <div class="analytics-content">
+            <div class="container">
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Problem Statistics</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="label">Total Solved</span>
+                                <span class="value" id="cc-total">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Easy</span>
+                                <span class="value" id="cc-easy">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Medium</span>
+                                <span class="value" id="cc-medium">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Hard</span>
+                                <span class="value" id="cc-hard">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Contest Performance</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="label">Rating</span>
+                                <span class="value" id="cc-rating">Unrated</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Stars</span>
+                                <span class="value" id="cc-stars">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Global Rank</span>
+                                <span class="value" id="cc-rank">-</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="label">Country Rank</span>
+                                <span class="value" id="cc-country-rank">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-row">
+                    <div class="chart-container">
+                        <h3>Problem Category Distribution</h3>
+                        <canvas id="codechefChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer class="footer">
-    <p>Made by Saibalik Chakraborty</p>
-    <div class="social-icons">
-        <a href="https://github.com/supernovaDS" target="_blank" aria-label="GitHub">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" />
-        </a>
-        <a href="https://www.linkedin.com/in/saibalik-chakraborty-802137284/" target="_blank" aria-label="LinkedIn">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" />
-        </a>
-        <a href="mailto:chakrabortysaibalik2323@gmail.com" aria-label="Email">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email" />
-        </a>
-    </div>
+        <div class="container">
+            <p>Made with ❤️ by Saibalik Chakraborty</p>
+            <div class="social-icons">
+                <a href="https://github.com/supernovaDS" target="_blank" aria-label="GitHub">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/saibalik-chakraborty-802137284/" target="_blank" aria-label="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="mailto:chakrabortysaibalik2323@gmail.com" aria-label="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.91L12 10.09l9.455-6.269h.909c.904 0 1.636.732 1.636 1.636z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
     </footer>
 
-    <div id="popup-modal" class="modal">
-    <div class="modal-content">
-        <span id="close-popup" class="close-button">&times;</span>
-        <h2>Notice</h2>
-        <p>Some features are under development and will be updated soon.</p>
+    <!-- Loading Modal -->
+    <div id="loading-modal" class="modal">
+        <div class="modal-content loading-content">
+            <div class="loading-spinner large"></div>
+            <h3>Fetching Data...</h3>
+            <p>Please wait while we gather your statistics</p>
+        </div>
     </div>
-    </div>
 
-
-
-
-    <script src="script1.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
